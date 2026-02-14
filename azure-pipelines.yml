@@ -1,10 +1,10 @@
 trigger: none
 pool: agentpool_babu
 stages:
-  - stages:
+  - stage:
     displayName: terraform-tool
     jobs:
-        job:
+        job: terraform_job
         steps:
         - task: TerraformInstaller@1
           inputs:
