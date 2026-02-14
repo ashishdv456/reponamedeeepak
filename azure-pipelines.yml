@@ -1,23 +1,20 @@
 trigger: none
 pool: agentpool_babu
 stages:
-  - stage:
+  - stage: 
     displayName: terraform-tool
     jobs:
-        job: terraform_job
+      - job: 
         steps:
-        - task: TerraformInstaller@1
-          inputs:
-            terraformVersion: 'latest'
         - task: TerraformTask@5
           inputs:
             provider: 'azurerm'
             command: 'init'
-            backendAzureRmOverrideSubscriptionID: 'b3922ee1-b132-4af3-a9e7-52bfedb4da65'
+            backendServiceArm: 'service_connection_name'
             backendAzureRmResourceGroupName: 'resource_group_new'
-            backendAzureRmStorageAccountName: 'storageaccountfeb'
+            backendAzureRmStorageAccountName: 'storageconnew'
             backendAzureRmContainerName: 'storageconnew'
-            backendAzureRmKey: 'yaml_pipline'
+            backendAzureRmKey: 'newyaml'
         - task: TerraformTask@5
           inputs:
             provider: 'azurerm'
@@ -28,4 +25,3 @@ stages:
             provider: 'azurerm'
             command: 'apply'
             environmentServiceNameAzureRM: 'service_connection_name'
-
